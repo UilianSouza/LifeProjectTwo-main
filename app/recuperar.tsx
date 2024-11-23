@@ -11,7 +11,7 @@ export default function PasswordRecoveryScreen() {
   const router = useRouter();
 
   // Função para verificar o CPF no banco de dados
-  const handleRequestCode = async () => {
+  const handleRequestCode = async (cpf: string) => { // Tipando o parâmetro como string
     if (cpf.trim() === '') {
       Alert.alert('Erro', 'Por favor, insira seu CPF');
       return;
@@ -57,7 +57,7 @@ export default function PasswordRecoveryScreen() {
               onChangeText={setCpf}
               keyboardType="numeric"
             />
-            <TouchableOpacity style={styles.button} onPress={handleRequestCode}>
+            <TouchableOpacity style={styles.button} onPress={() => handleRequestCode(cpf)}>
               <Text style={styles.buttonText}>Verificar CPF</Text>
             </TouchableOpacity>
           </>

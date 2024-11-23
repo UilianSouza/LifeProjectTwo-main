@@ -5,12 +5,18 @@ import IntroScreens from './entrada';
 import Home from './home'; 
 import Login from './login';
 import Signup from './cad';
+import CadConsultas from './Home/cadConsultas';
+import TratamentosServicos from './Home/TratamentosServicos';
+import Consultas from './Home/consultasAgendadas'
 
-type RootStackParamList = {
+export type RootStackParamList = {
   IntroScreens: undefined;
   Login: undefined;
   Signup: undefined;
   Home: undefined;
+  cadConsultas: { tratamento: { nome: string; valor: number } };
+  Consultas : undefined;
+  TratamentosServicos: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -46,6 +52,9 @@ const App = () => {
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Signup" component={Signup} />
+      <Stack.Screen name="cadConsultas" component={CadConsultas} />
+      <Stack.Screen name="Consultas" component={Consultas} />
+      <Stack.Screen name="TratamentosServicos" component={TratamentosServicos} />
     </Stack.Navigator>
   );
 };

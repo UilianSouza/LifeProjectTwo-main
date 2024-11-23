@@ -11,6 +11,8 @@ type RootStackParamList = {
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Signup'>;
 
+const sanitizeCPF = (cpf: string): string => cpf.replace(/\D/g, '');
+
 const SignupScreen: React.FC<Props> = () => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
@@ -31,28 +33,26 @@ const SignupScreen: React.FC<Props> = () => {
       Alert.alert('Erro', 'Por favor, preencha todos os campos.');
       return;
     }
-
+  
     if (password !== confirmPassword) {
       Alert.alert('Erro', 'As senhas não coincidem. Tente novamente.');
       return;
     }
-
-    const newUser = {
-      name,
-      password,
-      age,
-      cpf,
-    };
-
-    const isSuccess = await registerUser(username, newUser);
+  
+    const sanitizedCPF = sanitizeCPF(cpf);
+  
+    const newUser = { name, username, password, age, cpf: sanitizedCPF };
+  
+    const isSuccess = await registerUser(sanitizedCPF, newUser);
     if (isSuccess) {
       Alert.alert('Cadastro realizado com sucesso!', 'Você já pode fazer login.', [
         { text: 'OK', onPress: () => navigation.navigate('Login') },
       ]);
     } else {
-      Alert.alert('Erro', 'Nome de usuário já existe. Tente outro.');
+      Alert.alert('Erro', 'CPF já existe. Tente outro.');
     }
   };
+  
 
   return (
     <View style={styles.container}>
