@@ -15,7 +15,6 @@ const sanitizeCPF = (cpf: string): string => cpf.replace(/\D/g, '');
 
 const SignupScreen: React.FC<Props> = () => {
   const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [age, setAge] = useState('');
@@ -29,7 +28,7 @@ const SignupScreen: React.FC<Props> = () => {
   }, []);
 
   const handleSignup = async () => {
-    if (!name || !username || !password || !confirmPassword || !age || !cpf) {
+    if (!name || !password || !confirmPassword || !age || !cpf) {
       Alert.alert('Erro', 'Por favor, preencha todos os campos.');
       return;
     }
@@ -41,7 +40,7 @@ const SignupScreen: React.FC<Props> = () => {
   
     const sanitizedCPF = sanitizeCPF(cpf);
   
-    const newUser = { name, username, password, age, cpf: sanitizedCPF };
+    const newUser = { name, password, age, cpf: sanitizedCPF };
   
     const isSuccess = await registerUser(sanitizedCPF, newUser);
     if (isSuccess) {
@@ -63,13 +62,6 @@ const SignupScreen: React.FC<Props> = () => {
           placeholder="Nome"
           value={name}
           onChangeText={setName}
-          placeholderTextColor="#888"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Usuário"
-          value={username}
-          onChangeText={setUsername}
           placeholderTextColor="#888"
         />
         <TextInput
@@ -129,7 +121,7 @@ const styles = StyleSheet.create({
   card: {
     width: '100%',
     padding: 20,
-    backgroundColor: '#BC8F8F',
+    backgroundColor: '#d9ddff',
     borderRadius: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 5 },

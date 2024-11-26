@@ -43,7 +43,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
         navigation.navigate('Home'); // Navega para a tela Home
       }, 500); // 1 segundo de atraso
     } else {
-      setLoginMessage('Nome de usuário ou senha incorretos.');
+      setLoginMessage('CPF ou senha incorretos.');
     }
 
     // Restaura o estado de autenticação para permitir novos logins
@@ -58,7 +58,7 @@ export default function LoginScreen({ navigation }: LoginScreenProps) {
         {/* Campo de Usuário */}
         <TextInput
           style={styles.input}
-          placeholder="Usuário"
+          placeholder="CPF"
           value={username}
           onChangeText={setUsername}
         />
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   card: {
     width: '100%',
     padding: 20,
-    backgroundColor: '#BC8F8F',
+    backgroundColor: '#d9ddff',
     borderRadius: 15,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 5 },

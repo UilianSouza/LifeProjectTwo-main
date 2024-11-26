@@ -51,20 +51,31 @@ const IntroScreens = () => {
     <Swiper loop={false} showsPagination={true}>
       {/* Página 1 */}
       <View style={styles.slide}>
-        <Text style={styles.text}>Bem-vindo ao OdontoLife!</Text>
-        <Text style={styles.description}>Com esse app você será capaz de agendar suas consultas e tratamentos</Text>
+        <Text style={styles.text}>Seja bem-vindo ao OdontoLife!</Text>
+        <Text style={styles.description}>
+          Transforme a maneira como você cuida do seu sorriso. 
+          Agende consultas, acompanhe tratamentos e muito mais — tudo na palma da sua mão.
+        </Text>
       </View>
+
 
       {/* Página 2 */}
       <View style={styles.slide}>
-        <Text style={styles.text}>Nunca foi tão fácil cuidar do seu sorriso</Text>
-        <Text style={styles.description}>Tudo que você precisa na palma da sua mão!!!</Text>
+        <Text style={styles.text}>Sorrir nunca foi tão fácil!</Text>
+        <Text style={styles.description}>
+          Com o OdontoLife, você terá acesso rápido e prático ao que importa: 
+          sua saúde bucal. Simples, moderno e feito para você.
+        </Text>
       </View>
+
 
       {/* Página 3 com o botão "Próximo" */}
       <View style={styles.slide}>
-        <Text style={styles.text}>Pronto para se cuidar?</Text>
-        <Text style={styles.description}>Clique abaixo para iniciar</Text>
+        <Text style={styles.text}>Pronto para começar?</Text>
+        <Text style={styles.description}>
+          Descubra o que o OdontoLife pode fazer por você. 
+          Clique no botão abaixo e dê o primeiro passo para um sorriso perfeito.
+        </Text>
         <TouchableOpacity
           style={styles.nextButton}
           onPress={handleCompleteOnboarding}
@@ -72,6 +83,7 @@ const IntroScreens = () => {
           <Text style={styles.nextButtonText}>Vamos lá!</Text>
         </TouchableOpacity>
       </View>
+
     </Swiper>
   );
 };
@@ -81,26 +93,26 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#5a94db',
+    backgroundColor: '#d9ddff',
   },
   slide: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#5a94db',
+    backgroundColor: '#d9ddff',
   },
   text: {
     fontSize: 30,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: '#fff',
+    color: '#000',
     textAlign: 'center',
   },
   description: {
     fontSize: 20,
     textAlign: 'center',
     paddingHorizontal: 20,
-    color: '#fff',
+    color: '#000',
   },
   nextButton: {
     marginTop: 30,
@@ -110,7 +122,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   nextButtonText: {
-    color: '#fff',
+    color: '#000',
     fontSize: 18,
   },
 });
